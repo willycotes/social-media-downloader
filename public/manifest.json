@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram downloader media",
+  "description": "Extension downloader images and videos for instagram",
+  "version": "0.0.1",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "images/icons/instagram-downloader-media-128.png",
+		"default_title": "Instagram downloader media"
+  },
+	"icons": {
+    "16": "images/icons/instagram-downloader-media-16.png",
+    "32": "images/icons/instagram-downloader-media-32.png",
+    "64": "images/icons/instagram-downloader-media-64.png",
+    "128": "images/icons/instagram-downloader-media-128.png"
+  },
+	"content_scripts": [
+		{
+			"matches": ["https://www.instagram.com/*"],
+			"js": [
+				"chrome-scripts/content-scripts/functions.js",
+				"chrome-scripts/content-scripts/content-script.js"
+			],
+			"css": ["chrome-scripts/style.css"]
+		}
+		
+	],
+	"permissions": [
+		"activeTab",
+		"scripting",
+		"tabs",
+		"storage"
+	],
+	"background": {
+		"service_worker": "chrome-scripts/background-script.js"
+	}
+}
